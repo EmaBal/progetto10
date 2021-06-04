@@ -529,7 +529,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   unitName: Doggo
-  damage: 5
+  damage: 7
   healAmount: 5
   maxHP: 25
   currentHP: 25
