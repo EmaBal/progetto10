@@ -85,6 +85,8 @@ public class GameController : MonoBehaviour
         ButtonsInteract(false);
         bool isDead = false;
 
+        AtkButtonsVisibility(false);
+        
         if (attackType == "normal")
         {
             playerAnim.Attack("player");
@@ -106,7 +108,7 @@ public class GameController : MonoBehaviour
         
         enemyHUD.setHP(enemyUnit.currentHP);
         
-        AtkButtonsVisibility(false);
+        
         
         //yield return new WaitForSeconds(1f);
 
