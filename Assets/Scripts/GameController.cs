@@ -97,6 +97,7 @@ public class GameController : MonoBehaviour
             playerAnim.CritAttack();
             yield return new WaitForSeconds(0.4f);
             isDead = enemyUnit.TakeDamage(playerUnit.damage*2);
+            isCritUsed = true;
         }
         else if (attackType == "combo")
         {
