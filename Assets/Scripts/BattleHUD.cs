@@ -29,5 +29,5 @@ public class BattleHUD : MonoBehaviour
             marker.enabled = true;
         else
             marker.enabled = false;
-        }
+    }
 }

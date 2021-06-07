@@ -14,6 +14,11 @@ public class GameController : MonoBehaviour
 
     private AnimationStateController playerAnim;
     private AnimationStateController enemyAnim;
+    
+    private AudioSource[] endGameSFX;
+    private AudioSource lossSFX;
+    private AudioSource victorySFX;
+
 
     public GameObject playerPrefab;
     public GameObject enemyPrefab;
@@ -24,6 +29,11 @@ public class GameController : MonoBehaviour
     private Unit playerUnit;
     private Unit enemyUnit;
 
+    
+    private Animator animator;
+   // private AudioSource healSFX;
+    
+    
     [SerializeField] private Button showAttacksButton;
     [SerializeField] private Button attackButton;
     [SerializeField] private Button atkCritButton;
@@ -47,6 +57,9 @@ public class GameController : MonoBehaviour
     {
         state = BattleState.START;
         SetupBattle();
+        endGameSFX = GetComponents<AudioSource>();
+        lossSFX = endGameSFX[0];
+        victorySFX = endGameSFX[1];
     }
 
     void SetupBattle()
@@ -54,6 +67,7 @@ public class GameController : MonoBehaviour
         GameObject playerGO = Instantiate(playerPrefab);
         playerUnit = playerGO.GetComponent<Unit>();
         playerAnim = playerGO.GetComponent<AnimationStateController>();
+
 
         GameObject enemyGO = Instantiate(enemyPrefab);
         enemyUnit = enemyGO.GetComponent<Unit>();
@@ -105,7 +119,7 @@ public class GameController : MonoBehaviour
             yield return new WaitForSeconds(0.6f);
             isDead = enemyUnit.TakeDamage(playerUnit.damage*3);
         }
-        
+
         enemyHUD.setHP(enemyUnit.currentHP);
         
         //yield return new WaitForSeconds(1f);
@@ -143,7 +157,7 @@ public class GameController : MonoBehaviour
         {
             playerAnim.Death("player");
             //yield return new WaitForSeconds(1.2f);
-            yield return new WaitForSeconds(playerAnim.GetAnimator().GetCurrentAnimatorStateInfo(0).length);
+            yield return new WaitForSeconds(playerAnim.GetAnimator().GetCurrentAnimatorStateInfo(0).length+0.5f);
             state = BattleState.LOST;
             EndBattle();
         }
@@ -162,9 +176,11 @@ public class GameController : MonoBehaviour
         if (state == BattleState.WON)
         {
             result.text = "YOU HAVE WON!";
+            victorySFX.Play();
         } else if (state == BattleState.LOST)
         {
             result.text = "YOU WERE DEFEATED";
+            lossSFX.Play();
         }
     }
     void PlayerTurn()
@@ -223,9 +239,8 @@ public class GameController : MonoBehaviour
     IEnumerator PlayerHeal()
     {
         Instantiate(healPrefab);
-
         ButtonsInteract(false);
-        
+
         playerUnit.Heal(playerUnit.healAmount);
         playerHUD.setHP(playerUnit.currentHP);
         
