@@ -82,6 +82,7 @@ public class GameController : MonoBehaviour
 
     IEnumerator PlayerAttack(string attackType)
     {
+        AtkButtonsVisibility(false);
         ButtonsInteract(false);
         bool isDead = false;
 
@@ -105,8 +106,6 @@ public class GameController : MonoBehaviour
         }
         
         enemyHUD.setHP(enemyUnit.currentHP);
-        
-        AtkButtonsVisibility(false);
         
         //yield return new WaitForSeconds(1f);
 
