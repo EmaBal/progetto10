@@ -8,6 +8,10 @@ using Debug = UnityEngine.Debug;
 
 public class MainMenu : MonoBehaviour
 {
+
+    public GameObject mainMenuUI;
+    public GameObject optionsMenuUI;
+    
     public void PlayGame()
     {
         SceneManager.LoadScene("Game");

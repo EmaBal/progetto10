@@ -31,9 +31,8 @@ public class GameController : MonoBehaviour
 
     
     private Animator animator;
-   // private AudioSource healSFX;
-    
-    
+    // private AudioSource healSFX;
+
     [SerializeField] private Button showAttacksButton;
     [SerializeField] private Button attackButton;
     [SerializeField] private Button atkCritButton;
@@ -172,8 +171,8 @@ public class GameController : MonoBehaviour
     
     void EndBattle()
     {
-        battleMenuUI.SetActive(true);
         battleMusic.Stop();
+        battleMenuUI.SetActive(true);
         if (state == BattleState.WON)
         {
             result.text = "YOU HAVE WON!";
