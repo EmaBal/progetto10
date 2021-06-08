@@ -51,7 +51,7 @@ public class AnimationStateController : MonoBehaviour
     {
         animator.Play("Attack01 0");
         atkSFX.PlayDelayed(0.1f);
-        critSFX.PlayDelayed(0.5f);
+        critSFX.PlayDelayed(0.4f);
 
     }
 

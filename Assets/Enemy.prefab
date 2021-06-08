@@ -1231,7 +1231,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   unitName: Devil
-  damage: 5
+  damage: 6
   healAmount: 5
   maxHP: 30
   currentHP: 30

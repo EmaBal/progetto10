@@ -18,7 +18,7 @@ public class GameController : MonoBehaviour
     private AudioSource[] endGameSFX;
     private AudioSource lossSFX;
     private AudioSource victorySFX;
-
+    private AudioSource battleMusic;
 
     public GameObject playerPrefab;
     public GameObject enemyPrefab;
@@ -60,6 +60,7 @@ public class GameController : MonoBehaviour
         endGameSFX = GetComponents<AudioSource>();
         lossSFX = endGameSFX[0];
         victorySFX = endGameSFX[1];
+        battleMusic = endGameSFX[2];
     }
 
     void SetupBattle()
@@ -172,7 +173,7 @@ public class GameController : MonoBehaviour
     void EndBattle()
     {
         battleMenuUI.SetActive(true);
-        
+        battleMusic.Stop();
         if (state == BattleState.WON)
         {
             result.text = "YOU HAVE WON!";
