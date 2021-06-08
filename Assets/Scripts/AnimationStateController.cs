@@ -32,7 +32,7 @@ public class AnimationStateController : MonoBehaviour
         if (who == "player")
         {
             animator.Play("Attack01");
-            atkSFX.PlayDelayed(0.2f);
+            atkSFX.PlayDelayed(0.3f);
             
         } else if (who == "enemy")
         {
@@ -50,8 +50,9 @@ public class AnimationStateController : MonoBehaviour
     public void ComboAttack()
     {
         animator.Play("Attack01 0");
-        critSFX.PlayDelayed(0.1f);
-        atkSFX.PlayDelayed(0.6f);
+        atkSFX.PlayDelayed(0.1f);
+        critSFX.PlayDelayed(0.5f);
+
     }
 
     public void GetHit(string who)

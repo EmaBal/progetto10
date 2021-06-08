@@ -1231,7 +1231,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   unitName: Devil
-  damage: 8
+  damage: 5
   healAmount: 5
   maxHP: 30
   currentHP: 30
@@ -1257,7 +1257,7 @@ AudioSource:
   m_Enabled: 1
   serializedVersion: 4
   OutputAudioMixerGroup: {fileID: 0}
-  m_audioClip: {fileID: 8300000, guid: fe0b1f9aeb45b41b089175aeeabd5d95, type: 3}
+  m_audioClip: {fileID: 8300000, guid: 385734988da9fcc47b004b79c15ab4a2, type: 3}
   m_PlayOnAwake: 0
   m_Volume: 1
   m_Pitch: 1
