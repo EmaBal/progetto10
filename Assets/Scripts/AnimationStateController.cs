@@ -19,6 +19,7 @@ public class AnimationStateController : MonoBehaviour
         sounds = GetComponents<AudioSource>();
         atkSFX = sounds[0];
         deathSFX = sounds[1];
+        critSFX = sounds[2];
     }
 
     public Animator GetAnimator()
@@ -43,7 +44,6 @@ public class AnimationStateController : MonoBehaviour
     public void CritAttack()
     {
         animator.Play("Attack02");
-        critSFX = sounds[2];
         critSFX.PlayDelayed(0.1f);
     }
     
